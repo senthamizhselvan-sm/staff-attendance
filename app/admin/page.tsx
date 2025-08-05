@@ -64,7 +64,7 @@ export default function AdminDashboard() {
     setLoading(true);
     try {
       // Fetch all duty records
-      const response = await fetch('http://localhost:3000/duty/all');
+      const response = await fetch(' https://staff-attendance-1.onrender.com/duty/all');
       if (response.ok) {
         const data = await response.json();
         setDutyRecords(data);

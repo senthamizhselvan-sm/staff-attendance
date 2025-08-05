@@ -65,7 +65,7 @@ export default function QRCheckInPage() {
   useEffect(() => {
     const fetchTodayDuty = async () => {
       try {
-        const response = await fetch('http://localhost:3000/duty/today');
+        const response = await fetch(' https://staff-attendance-1.onrender.com/duty/today');
         if (response.ok) {
           const data = await response.json();
           if (data && data.length > 0) {
@@ -97,7 +97,7 @@ export default function QRCheckInPage() {
   const refreshDutyData = async (mobileNumber: string) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/duty/check-mobile/${mobileNumber}`
+        ` https://staff-attendance-1.onrender.com/duty/check-mobile/${mobileNumber}`
       );
       if (response.ok) {
         const result = await response.json();
@@ -128,7 +128,7 @@ export default function QRCheckInPage() {
     try {
       // Get staff info first
       const staffResponse = await fetch(
-        `http://localhost:3000/staff/by-mobile/${mobileNumber}`
+        ` https://staff-attendance-1.onrender.com/staff/by-mobile/${mobileNumber}`
       );
 
       if (!staffResponse.ok) {
@@ -171,7 +171,7 @@ export default function QRCheckInPage() {
       // Try to check-in
       try {
         const reportResponse = await fetch(
-          'http://localhost:3000/duty/report',
+          ' https://staff-attendance-1.onrender.com/duty/report',
           {
             method: 'POST',
             headers: {
@@ -262,7 +262,7 @@ export default function QRCheckInPage() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3000/duty/submit', {
+      const response = await fetch(' https://staff-attendance-1.onrender.com/duty/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -310,7 +310,7 @@ export default function QRCheckInPage() {
     try {
       // Process proxy check-in - absent staff mobile number must exist in duty list
       const proxyCheckInResponse = await fetch(
-        'http://localhost:3000/duty/proxy',
+        ' https://staff-attendance-1.onrender.com/duty/proxy',
         {
           method: 'POST',
           headers: {
